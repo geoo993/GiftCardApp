@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gift Cards-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gift Cards in Seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-Vk-pHa">
+                                <rect key="frame" x="0.0" y="98" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R3k-g8-i4h">
+                                <rect key="frame" x="0.0" y="129" width="414" height="733"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="746-Fj-K12" customClass="CollectionViewOverlappingLayout" customModule="GiftCardApp" customModuleProvider="target">
+                                    <size key="itemSize" width="336" height="188"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="10" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="giftcardCell" id="MV5-eP-YNd" customClass="GiftCardCollectionViewCell" customModule="GiftCardApp" customModuleProvider="target">
+                                        <rect key="frame" x="39" y="10" width="336" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3YG-Pf-mJP">
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon card" translatesAutoresizingMaskIntoConstraints="NO" id="GRc-YH-01q">
+                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="188"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="GRc-YH-01q" secondAttribute="bottom" id="Fne-TY-FS1"/>
+                                                <constraint firstAttribute="trailing" secondItem="GRc-YH-01q" secondAttribute="trailing" id="aJ2-gI-6Ih"/>
+                                                <constraint firstItem="GRc-YH-01q" firstAttribute="leading" secondItem="3YG-Pf-mJP" secondAttribute="leading" id="lAT-I8-4bD"/>
+                                                <constraint firstItem="GRc-YH-01q" firstAttribute="top" secondItem="3YG-Pf-mJP" secondAttribute="top" id="taB-rs-5yt"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="cardImageView" destination="GRc-YH-01q" id="Twm-bD-b2q"/>
+                                            <segue destination="JtO-5A-mcH" kind="presentation" id="81m-lq-oet"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g5m-Vk-pHa" secondAttribute="trailing" id="26a-Ng-xDy"/>
+                            <constraint firstItem="g5m-Vk-pHa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="5CP-as-bEy"/>
+                            <constraint firstItem="R3k-g8-i4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8zj-Lb-Wdc"/>
+                            <constraint firstItem="g5m-Vk-pHa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GEz-HP-wV4"/>
+                            <constraint firstItem="R3k-g8-i4h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cki-pN-jQz"/>
+                            <constraint firstItem="R3k-g8-i4h" firstAttribute="top" secondItem="g5m-Vk-pHa" secondAttribute="bottom" constant="10" id="h5Q-JN-YjX"/>
+                            <constraint firstItem="R3k-g8-i4h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iT3-2h-1lL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Gift Cards" id="4CR-T8-5LZ"/>
+                    <connections>
+                        <outlet property="giftcardsCollecionView" destination="R3k-g8-i4h" id="UOV-8n-jcI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595.6521739130435" y="154.6875"/>
+        </scene>
+        <!--Gift Card View Controller-->
+        <scene sceneID="Ioz-63-ZoP">
+            <objects>
+                <viewController storyboardIdentifier="GiftCardViewController" id="JtO-5A-mcH" customClass="GiftCardViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lal-sH-nem">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m65-xV-Kqq">
+                                <rect key="frame" x="20" y="20" width="34" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="JtO-5A-mcH" eventType="touchUpInside" id="pqX-Fx-3y3"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wizgift" translatesAutoresizingMaskIntoConstraints="NO" id="WAf-mp-INt">
+                                <rect key="frame" x="177.5" y="18" width="59" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="F8z-rx-PBS"/>
+                                    <constraint firstAttribute="width" constant="59" id="eTT-um-EAK"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuV-fL-UQ2">
+                                <rect key="frame" x="35.5" y="84" width="343" height="557"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon group card" translatesAutoresizingMaskIntoConstraints="NO" id="7Xf-kc-mO6">
+                                        <rect key="frame" x="-5" y="-5" width="353" height="567"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBZ-4M-1Dp">
+                                        <rect key="frame" x="0.0" y="188" width="343" height="369"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesco Gift Card" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl3-rk-BMY">
+                                                <rect key="frame" x="0.0" y="15" width="343" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="4qW-uh-ee4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Voucher Amount" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-U2-uyD">
+                                                <rect key="frame" x="81" y="40" width="181" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="KIC-4H-WMP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-pay" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-CK-gJe">
+                                                <rect key="frame" x="143.5" y="82" width="56" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="cMc-Pr-7l1"/>
+                                                    <constraint firstAttribute="height" constant="24" id="khs-34-PsL"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="S1w-aZ-40K">
+                                                <rect key="frame" x="0.0" y="116" width="343" height="253"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Po-lP-6KN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="65"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdP-1y-apN" customClass="DenominationButton" customModule="GiftCardApp" customModuleProvider="target">
+                                                                <rect key="frame" x="43.5" y="0.0" width="256" height="65"/>
+                                                                <color key="backgroundColor" red="0.96722882986068726" green="0.76496368646621704" blue="0.7240634560585022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="256" id="Qta-oa-c5g"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                                <state key="normal" title="£10">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="7"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="payOne:" destination="JtO-5A-mcH" eventType="touchUpInside" id="wPl-fy-7Sn"/>
+                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="w4d-hC-0fa"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="65" id="GoC-3b-ryO"/>
+                                                            <constraint firstItem="XdP-1y-apN" firstAttribute="height" secondItem="3Po-lP-6KN" secondAttribute="height" id="RkM-CQ-SBb"/>
+                                                            <constraint firstItem="XdP-1y-apN" firstAttribute="centerY" secondItem="3Po-lP-6KN" secondAttribute="centerY" id="blc-VE-ciN"/>
+                                                            <constraint firstItem="XdP-1y-apN" firstAttribute="centerX" secondItem="3Po-lP-6KN" secondAttribute="centerX" id="vKb-AL-VzR"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HsO-BD-93n">
+                                                        <rect key="frame" x="0.0" y="81" width="343" height="65"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iW-5Q-CTz" customClass="DenominationButton" customModule="GiftCardApp" customModuleProvider="target">
+                                                                <rect key="frame" x="43.5" y="0.0" width="256" height="65"/>
+                                                                <color key="backgroundColor" red="0.94927221536636353" green="0.58448028564453125" blue="0.50611311197280884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="256" id="kuo-Pf-JWL"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                                <state key="normal" title="£25">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="7"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="payTwo:" destination="JtO-5A-mcH" eventType="touchUpInside" id="KEU-Yf-pul"/>
+                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="UZx-FW-WfZ"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="6iW-5Q-CTz" firstAttribute="height" secondItem="HsO-BD-93n" secondAttribute="height" id="4gz-bE-DNf"/>
+                                                            <constraint firstAttribute="height" constant="65" id="OVb-xX-B8t"/>
+                                                            <constraint firstItem="6iW-5Q-CTz" firstAttribute="centerY" secondItem="HsO-BD-93n" secondAttribute="centerY" id="PBP-01-HUk"/>
+                                                            <constraint firstItem="6iW-5Q-CTz" firstAttribute="centerX" secondItem="HsO-BD-93n" secondAttribute="centerX" id="b9t-c6-hUB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PO-9Y-ztN">
+                                                        <rect key="frame" x="0.0" y="162" width="343" height="65"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6j-En-Qml" customClass="DenominationButton" customModule="GiftCardApp" customModuleProvider="target">
+                                                                <rect key="frame" x="43.5" y="0.0" width="256" height="65"/>
+                                                                <color key="backgroundColor" red="0.9392206072807312" green="0.43882113695144653" blue="0.32461470365524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="256" id="phI-df-fU5"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                                <state key="normal" title="£50">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="7"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="payThree:" destination="JtO-5A-mcH" eventType="touchUpInside" id="Kp0-yx-Fzl"/>
+                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="Z7M-lB-pea"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="H6j-En-Qml" firstAttribute="centerX" secondItem="8PO-9Y-ztN" secondAttribute="centerX" id="ENE-6y-4Cz"/>
+                                                            <constraint firstAttribute="height" constant="65" id="Nkm-GQ-wsl"/>
+                                                            <constraint firstItem="H6j-En-Qml" firstAttribute="height" secondItem="8PO-9Y-ztN" secondAttribute="height" id="TYt-G1-yDM"/>
+                                                            <constraint firstItem="H6j-En-Qml" firstAttribute="centerY" secondItem="8PO-9Y-ztN" secondAttribute="centerY" id="wXZ-H9-jAN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slU-td-qGU">
+                                                        <rect key="frame" x="0.0" y="243" width="343" height="10"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="S1w-aZ-40K" secondAttribute="bottom" id="84a-Zw-oMy"/>
+                                            <constraint firstItem="bl3-rk-BMY" firstAttribute="top" secondItem="IBZ-4M-1Dp" secondAttribute="top" constant="15" id="AtX-lg-jat"/>
+                                            <constraint firstItem="S1w-aZ-40K" firstAttribute="leading" secondItem="IBZ-4M-1Dp" secondAttribute="leading" id="J8M-iB-wld"/>
+                                            <constraint firstAttribute="width" constant="343" id="Jud-MW-FLe"/>
+                                            <constraint firstItem="uXW-U2-uyD" firstAttribute="top" secondItem="bl3-rk-BMY" secondAttribute="bottom" id="Mwx-GM-ILz"/>
+                                            <constraint firstItem="bl3-rk-BMY" firstAttribute="leading" secondItem="IBZ-4M-1Dp" secondAttribute="leading" id="Ngy-Co-Ktk"/>
+                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="centerX" secondItem="uXW-U2-uyD" secondAttribute="centerX" id="Svn-pM-9bk"/>
+                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="top" secondItem="uXW-U2-uyD" secondAttribute="bottom" constant="12" id="Zav-dC-UgF"/>
+                                            <constraint firstAttribute="trailing" secondItem="bl3-rk-BMY" secondAttribute="trailing" id="aH6-86-8CY"/>
+                                            <constraint firstAttribute="trailing" secondItem="S1w-aZ-40K" secondAttribute="trailing" id="jWs-WQ-MYI"/>
+                                            <constraint firstAttribute="height" constant="369" id="oAN-k7-W29"/>
+                                            <constraint firstItem="S1w-aZ-40K" firstAttribute="top" secondItem="neZ-CK-gJe" secondAttribute="bottom" constant="10" id="qSo-Bf-TDT"/>
+                                            <constraint firstItem="uXW-U2-uyD" firstAttribute="centerX" secondItem="bl3-rk-BMY" secondAttribute="centerX" id="qfx-lj-lfF"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7Xf-kc-mO6" firstAttribute="centerY" secondItem="tuV-fL-UQ2" secondAttribute="centerY" id="3am-vm-YHc"/>
+                                    <constraint firstAttribute="height" constant="557" id="62M-Jt-JK3"/>
+                                    <constraint firstItem="7Xf-kc-mO6" firstAttribute="centerX" secondItem="tuV-fL-UQ2" secondAttribute="centerX" id="Khs-Mw-Ezh"/>
+                                    <constraint firstAttribute="width" constant="343" id="ms8-tS-dBC"/>
+                                    <constraint firstItem="IBZ-4M-1Dp" firstAttribute="top" secondItem="tuV-fL-UQ2" secondAttribute="top" constant="188" id="nyC-cz-YGa"/>
+                                    <constraint firstItem="IBZ-4M-1Dp" firstAttribute="centerX" secondItem="7Xf-kc-mO6" secondAttribute="centerX" id="yoo-UW-oQj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tuV-fL-UQ2" firstAttribute="centerX" secondItem="lal-sH-nem" secondAttribute="centerX" id="JKG-ST-dsG"/>
+                            <constraint firstItem="tuV-fL-UQ2" firstAttribute="top" secondItem="WAf-mp-INt" secondAttribute="bottom" constant="25" id="OJw-zF-1fO"/>
+                            <constraint firstItem="m65-xV-Kqq" firstAttribute="top" secondItem="Kzr-qr-41N" secondAttribute="top" constant="20" id="OKy-I2-tpl"/>
+                            <constraint firstItem="m65-xV-Kqq" firstAttribute="leading" secondItem="Kzr-qr-41N" secondAttribute="leading" constant="20" id="WJf-5k-b2k"/>
+                            <constraint firstItem="WAf-mp-INt" firstAttribute="top" secondItem="Kzr-qr-41N" secondAttribute="top" constant="18" id="ZBd-Fd-0wI"/>
+                            <constraint firstItem="m65-xV-Kqq" firstAttribute="centerY" secondItem="WAf-mp-INt" secondAttribute="centerY" id="bAf-e7-Mzk"/>
+                            <constraint firstItem="WAf-mp-INt" firstAttribute="centerX" secondItem="lal-sH-nem" secondAttribute="centerX" id="hNI-6d-XZ8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kzr-qr-41N"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="7Xf-kc-mO6" id="LKd-Kr-OJ7"/>
+                        <outlet property="titleLabel" destination="bl3-rk-BMY" id="1vz-mT-yZ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Azp-3k-JEJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="152"/>
+        </scene>
+        <!--Confirmation View Controller-->
+        <scene sceneID="iW7-ji-dmZ">
+            <objects>
+                <viewController id="imQ-GM-gNo" customClass="ConfirmationViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W9r-LH-eBY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xde-le-uXb" customClass="GiftCardView" customModule="GiftCardApp" customModuleProvider="target">
+                                <rect key="frame" x="35.5" y="68" width="343" height="263"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon card" translatesAutoresizingMaskIntoConstraints="NO" id="BMJ-2I-7mZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="188"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="188" id="CyY-no-uCg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCA-5f-ZVI">
+                                        <rect key="frame" x="0.0" y="188" width="343" height="75"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zCA-5f-ZVI" secondAttribute="trailing" id="7Dx-GL-v5o"/>
+                                    <constraint firstItem="zCA-5f-ZVI" firstAttribute="top" secondItem="BMJ-2I-7mZ" secondAttribute="bottom" id="9Pj-xu-kRy"/>
+                                    <constraint firstItem="zCA-5f-ZVI" firstAttribute="leading" secondItem="xde-le-uXb" secondAttribute="leading" id="EFd-P5-Yt8"/>
+                                    <constraint firstItem="BMJ-2I-7mZ" firstAttribute="leading" secondItem="xde-le-uXb" secondAttribute="leading" id="Lzo-oL-FbG"/>
+                                    <constraint firstItem="BMJ-2I-7mZ" firstAttribute="top" secondItem="xde-le-uXb" secondAttribute="top" id="Z1C-FV-wFh"/>
+                                    <constraint firstAttribute="width" constant="343" id="ZwJ-rA-amy"/>
+                                    <constraint firstAttribute="height" constant="263" id="g4I-L3-g9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="BMJ-2I-7mZ" secondAttribute="trailing" id="gr6-OX-6Im"/>
+                                    <constraint firstAttribute="bottom" secondItem="zCA-5f-ZVI" secondAttribute="bottom" id="lqi-vj-bRO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-No-NAM">
+                                <rect key="frame" x="16" y="361" width="382" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Gift Card is on the way to Your email." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwQ-6D-mFM">
+                                <rect key="frame" x="67" y="429" width="280" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="SaF-yy-U30"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-KL-oBj">
+                                <rect key="frame" x="188.5" y="510" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="done:" destination="imQ-GM-gNo" eventType="touchUpInside" id="9Th-dO-7Fm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lVS-No-NAM" firstAttribute="top" secondItem="xde-le-uXb" secondAttribute="bottom" constant="30" id="1sb-QS-dmD"/>
+                            <constraint firstItem="xde-le-uXb" firstAttribute="top" secondItem="ew7-wY-FyR" secondAttribute="top" constant="68" id="PUE-tm-flC"/>
+                            <constraint firstItem="OwQ-6D-mFM" firstAttribute="top" secondItem="lVS-No-NAM" secondAttribute="bottom" constant="8" id="RMb-3c-iZU"/>
+                            <constraint firstItem="zAu-KL-oBj" firstAttribute="centerX" secondItem="W9r-LH-eBY" secondAttribute="centerX" id="VdX-yh-rxb"/>
+                            <constraint firstItem="zAu-KL-oBj" firstAttribute="top" secondItem="OwQ-6D-mFM" secondAttribute="bottom" constant="40" id="aSt-4u-sSg"/>
+                            <constraint firstItem="xde-le-uXb" firstAttribute="centerX" secondItem="W9r-LH-eBY" secondAttribute="centerX" id="ar8-Sp-L8G"/>
+                            <constraint firstItem="OwQ-6D-mFM" firstAttribute="centerX" secondItem="W9r-LH-eBY" secondAttribute="centerX" id="hwJ-zt-YJN"/>
+                            <constraint firstItem="lVS-No-NAM" firstAttribute="leading" secondItem="ew7-wY-FyR" secondAttribute="leading" constant="16" id="sKb-58-mfr"/>
+                            <constraint firstItem="ew7-wY-FyR" firstAttribute="trailing" secondItem="lVS-No-NAM" secondAttribute="trailing" constant="16" id="sNi-aw-F8y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ew7-wY-FyR"/>
+                    </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="zCA-5f-ZVI" id="jij-bs-VbH"/>
+                        <outlet property="imageView" destination="BMJ-2I-7mZ" id="pjT-Eg-GjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aX1-gc-WAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2274" y="148"/>
+        </scene>
+        <!--Home Navigation Controller-->
+        <scene sceneID="Eg3-Zw-XsZ">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="h4P-iw-fJ9" customClass="HomeNavigationController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vha-xU-FzX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sww-AK-0a1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmC-Hn-0FO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-267" y="155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Wizgift" width="101" height="43"/>
+        <image name="amazon card" width="353" height="198"/>
+        <image name="amazon group card" width="353" height="567"/>
+        <image name="apple-pay" width="56" height="24"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="w4d-hC-0fa"/>
+    </inferredMetricsTieBreakers>
+</document>

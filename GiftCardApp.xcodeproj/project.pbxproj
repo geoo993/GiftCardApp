@@ -1,0 +1,697 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB7374F323FE976F0087B5E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7374F223FE976F0087B5E1 /* AppDelegate.swift */; };
+		AB7374F523FE976F0087B5E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7374F423FE976F0087B5E1 /* SceneDelegate.swift */; };
+		AB7374F723FE976F0087B5E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7374F623FE976F0087B5E1 /* HomeViewController.swift */; };
+		AB7374FA23FE976F0087B5E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7374F823FE976F0087B5E1 /* Main.storyboard */; };
+		AB7374FC23FE97740087B5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7374FB23FE97740087B5E1 /* Assets.xcassets */; };
+		AB7374FF23FE97740087B5E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7374FD23FE97740087B5E1 /* LaunchScreen.storyboard */; };
+		AB73750A23FE97740087B5E1 /* GiftCardAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73750923FE97740087B5E1 /* GiftCardAppTests.swift */; };
+		AB73751C23FEA2D00087B5E1 /* GiftCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73751B23FEA2D00087B5E1 /* GiftCardViewController.swift */; };
+		AB73751E23FEA3280087B5E1 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73751D23FEA3280087B5E1 /* ConfirmationViewController.swift */; };
+		AB73752023FEA43A0087B5E1 /* GiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73751F23FEA43A0087B5E1 /* GiftCard.swift */; };
+		AB73752223FEA44D0087B5E1 /* GiftCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73752123FEA44D0087B5E1 /* GiftCardViewModel.swift */; };
+		AB73752523FEA62D0087B5E1 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73752423FEA62D0087B5E1 /* UIColor+Ext.swift */; };
+		AB73752723FEABC20087B5E1 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73752623FEABC20087B5E1 /* HomeNavigationController.swift */; };
+		AB73752923FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73752823FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift */; };
+		AB981D3023FED14F00F80027 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2B23FED14F00F80027 /* RxSwift.framework */; };
+		AB981D3123FED14F00F80027 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2C23FED14F00F80027 /* RxRelay.framework */; };
+		AB981D3323FED14F00F80027 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2E23FED14F00F80027 /* RxCocoa.framework */; };
+		AB981D3423FED14F00F80027 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2F23FED14F00F80027 /* Stripe.framework */; };
+		AB981D3723FED17500F80027 /* RxCocoa.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2E23FED14F00F80027 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB981D3823FED17500F80027 /* RxRelay.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2C23FED14F00F80027 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB981D3923FED17500F80027 /* RxSwift.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2B23FED14F00F80027 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB981D3A23FED17500F80027 /* Stripe.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2F23FED14F00F80027 /* Stripe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB981D4623FEF62B00F80027 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4023FEF62B00F80027 /* Buttons.swift */; };
+		AB981D4723FEF62B00F80027 /* BrowseProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4123FEF62B00F80027 /* BrowseProductsViewController.swift */; };
+		AB981D4823FEF62B00F80027 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4223FEF62B00F80027 /* MyAPIClient.swift */; };
+		AB981D4923FEF62B00F80027 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4323FEF62B00F80027 /* SettingsViewController.swift */; };
+		AB981D4A23FEF62B00F80027 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */; };
+		AB981D4B23FEF62B00F80027 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */; };
+		AB981D4E23FEFCAD00F80027 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D4C23FEFCA700F80027 /* Alamofire.framework */; };
+		AB981D4F23FEFCAD00F80027 /* Alamofire.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D4C23FEFCA700F80027 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB981D5123FF00F100F80027 /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5023FF00F100F80027 /* EmojiCell.swift */; };
+		AB981D5323FF012D00F80027 /* EmojiCheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5223FF012D00F80027 /* EmojiCheckoutCell.swift */; };
+		AB981D5523FF015F00F80027 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5423FF015E00F80027 /* PaymentContextFooterView.swift */; };
+		AB981D5723FF017A00F80027 /* UIColor+Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5623FF017A00F80027 /* UIColor+Stripe.swift */; };
+		AB981D5923FFDDFC00F80027 /* DenominationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5823FFDDFC00F80027 /* DenominationButton.swift */; };
+		AB981D5B23FFE98B00F80027 /* GiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5A23FFE98B00F80027 /* GiftCardView.swift */; };
+		AB981D5E23FFF2A600F80027 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; };
+		AB981D5F23FFF2A600F80027 /* Hero.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB73750623FE97740087B5E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB7374E723FE976F0087B5E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB7374EE23FE976F0087B5E1;
+			remoteInfo = GiftCardApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB981D3523FED16200F80027 /* Embedded Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB981D3723FED17500F80027 /* RxCocoa.framework in Embedded Frameworks */,
+				AB981D3823FED17500F80027 /* RxRelay.framework in Embedded Frameworks */,
+				AB981D5F23FFF2A600F80027 /* Hero.framework in Embedded Frameworks */,
+				AB981D3923FED17500F80027 /* RxSwift.framework in Embedded Frameworks */,
+				AB981D4F23FEFCAD00F80027 /* Alamofire.framework in Embedded Frameworks */,
+				AB981D3A23FED17500F80027 /* Stripe.framework in Embedded Frameworks */,
+			);
+			name = "Embedded Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AB7374EF23FE976F0087B5E1 /* GiftCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB7374F223FE976F0087B5E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AB7374F423FE976F0087B5E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AB7374F623FE976F0087B5E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AB7374F923FE976F0087B5E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB7374FB23FE97740087B5E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB7374FE23FE97740087B5E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB73750023FE97740087B5E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB73750523FE97740087B5E1 /* GiftCardAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiftCardAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB73750923FE97740087B5E1 /* GiftCardAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardAppTests.swift; sourceTree = "<group>"; };
+		AB73750B23FE97740087B5E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB73751B23FEA2D00087B5E1 /* GiftCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardViewController.swift; sourceTree = "<group>"; };
+		AB73751D23FEA3280087B5E1 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		AB73751F23FEA43A0087B5E1 /* GiftCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCard.swift; sourceTree = "<group>"; };
+		AB73752123FEA44D0087B5E1 /* GiftCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardViewModel.swift; sourceTree = "<group>"; };
+		AB73752423FEA62D0087B5E1 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		AB73752623FEABC20087B5E1 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		AB73752823FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB981D2B23FED14F00F80027 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Frameworks/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		AB981D2C23FED14F00F80027 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Frameworks/RxRelay.framework; sourceTree = SOURCE_ROOT; };
+		AB981D2E23FED14F00F80027 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Frameworks/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
+		AB981D2F23FED14F00F80027 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = Frameworks/Stripe.framework; sourceTree = SOURCE_ROOT; };
+		AB981D4023FEF62B00F80027 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		AB981D4123FEF62B00F80027 /* BrowseProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseProductsViewController.swift; sourceTree = "<group>"; };
+		AB981D4223FEF62B00F80027 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
+		AB981D4323FEF62B00F80027 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
+		AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		AB981D4C23FEFCA700F80027 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		AB981D5023FF00F100F80027 /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		AB981D5223FF012D00F80027 /* EmojiCheckoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCheckoutCell.swift; sourceTree = "<group>"; };
+		AB981D5423FF015E00F80027 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
+		AB981D5623FF017A00F80027 /* UIColor+Stripe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Stripe.swift"; sourceTree = "<group>"; };
+		AB981D5823FFDDFC00F80027 /* DenominationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenominationButton.swift; sourceTree = "<group>"; };
+		AB981D5A23FFE98B00F80027 /* GiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardView.swift; sourceTree = "<group>"; };
+		AB981D5C23FFF29D00F80027 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Frameworks/Hero.framework; sourceTree = SOURCE_ROOT; };
+		AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GiftCardAppRelease.entitlements; path = ../../../.Trash/GiftCardAppRelease.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB7374EC23FE976F0087B5E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB981D3323FED14F00F80027 /* RxCocoa.framework in Frameworks */,
+				AB981D3123FED14F00F80027 /* RxRelay.framework in Frameworks */,
+				AB981D5E23FFF2A600F80027 /* Hero.framework in Frameworks */,
+				AB981D3423FED14F00F80027 /* Stripe.framework in Frameworks */,
+				AB981D4E23FEFCAD00F80027 /* Alamofire.framework in Frameworks */,
+				AB981D3023FED14F00F80027 /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB73750223FE97740087B5E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB7374E623FE976F0087B5E1 = {
+			isa = PBXGroup;
+			children = (
+				AB7374F123FE976F0087B5E1 /* GiftCardApp */,
+				AB73750823FE97740087B5E1 /* GiftCardAppTests */,
+				AB73752A23FECEAA0087B5E1 /* Frameworks */,
+				AB7374F023FE976F0087B5E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB7374F023FE976F0087B5E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB7374EF23FE976F0087B5E1 /* GiftCardApp.app */,
+				AB73750523FE97740087B5E1 /* GiftCardAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB7374F123FE976F0087B5E1 /* GiftCardApp */ = {
+			isa = PBXGroup;
+			children = (
+				AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */,
+				AB73751723FE990E0087B5E1 /* Delegate */,
+				AB981D3B23FEDD9900F80027 /* Stripe */,
+				AB73751623FE97940087B5E1 /* Models */,
+				AB73751523FE978A0087B5E1 /* ViewModels */,
+				AB73751423FE977E0087B5E1 /* Views */,
+				AB73752323FEA50D0087B5E1 /* Foundation */,
+				AB73750023FE97740087B5E1 /* Info.plist */,
+			);
+			path = GiftCardApp;
+			sourceTree = "<group>";
+		};
+		AB73750823FE97740087B5E1 /* GiftCardAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB73750923FE97740087B5E1 /* GiftCardAppTests.swift */,
+				AB73750B23FE97740087B5E1 /* Info.plist */,
+			);
+			path = GiftCardAppTests;
+			sourceTree = "<group>";
+		};
+		AB73751423FE977E0087B5E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB73751823FEA1570087B5E1 /* Home */,
+				AB73751923FEA16B0087B5E1 /* GiftCard */,
+				AB73751A23FEA1790087B5E1 /* Confirmation */,
+				AB7374FD23FE97740087B5E1 /* LaunchScreen.storyboard */,
+				AB7374FB23FE97740087B5E1 /* Assets.xcassets */,
+				AB7374F823FE976F0087B5E1 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB73751523FE978A0087B5E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AB73752123FEA44D0087B5E1 /* GiftCardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AB73751623FE97940087B5E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB73751F23FEA43A0087B5E1 /* GiftCard.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AB73751723FE990E0087B5E1 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				AB7374F223FE976F0087B5E1 /* AppDelegate.swift */,
+				AB7374F423FE976F0087B5E1 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		AB73751823FEA1570087B5E1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AB73752623FEABC20087B5E1 /* HomeNavigationController.swift */,
+				AB7374F623FE976F0087B5E1 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AB73751923FEA16B0087B5E1 /* GiftCard */ = {
+			isa = PBXGroup;
+			children = (
+				AB73751B23FEA2D00087B5E1 /* GiftCardViewController.swift */,
+				AB981D5823FFDDFC00F80027 /* DenominationButton.swift */,
+				AB981D5A23FFE98B00F80027 /* GiftCardView.swift */,
+			);
+			path = GiftCard;
+			sourceTree = "<group>";
+		};
+		AB73751A23FEA1790087B5E1 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				AB73751D23FEA3280087B5E1 /* ConfirmationViewController.swift */,
+				AB73752823FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		AB73752323FEA50D0087B5E1 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				AB73752423FEA62D0087B5E1 /* UIColor+Ext.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		AB73752A23FECEAA0087B5E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB981D5C23FFF29D00F80027 /* Hero.framework */,
+				AB981D4C23FEFCA700F80027 /* Alamofire.framework */,
+				AB981D2E23FED14F00F80027 /* RxCocoa.framework */,
+				AB981D2C23FED14F00F80027 /* RxRelay.framework */,
+				AB981D2B23FED14F00F80027 /* RxSwift.framework */,
+				AB981D2F23FED14F00F80027 /* Stripe.framework */,
+			);
+			name = Frameworks;
+			path = ../Frameworks;
+			sourceTree = "<group>";
+		};
+		AB981D3B23FEDD9900F80027 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				AB981D5623FF017A00F80027 /* UIColor+Stripe.swift */,
+				AB981D5423FF015E00F80027 /* PaymentContextFooterView.swift */,
+				AB981D5223FF012D00F80027 /* EmojiCheckoutCell.swift */,
+				AB981D5023FF00F100F80027 /* EmojiCell.swift */,
+				AB981D4123FEF62B00F80027 /* BrowseProductsViewController.swift */,
+				AB981D4023FEF62B00F80027 /* Buttons.swift */,
+				AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */,
+				AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */,
+				AB981D4223FEF62B00F80027 /* MyAPIClient.swift */,
+				AB981D4323FEF62B00F80027 /* SettingsViewController.swift */,
+			);
+			path = Stripe;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB7374EE23FE976F0087B5E1 /* GiftCardApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB73750E23FE97740087B5E1 /* Build configuration list for PBXNativeTarget "GiftCardApp" */;
+			buildPhases = (
+				AB7374EB23FE976F0087B5E1 /* Sources */,
+				AB7374EC23FE976F0087B5E1 /* Frameworks */,
+				AB7374ED23FE976F0087B5E1 /* Resources */,
+				AB981D3523FED16200F80027 /* Embedded Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiftCardApp;
+			productName = GiftCardApp;
+			productReference = AB7374EF23FE976F0087B5E1 /* GiftCardApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB73750423FE97740087B5E1 /* GiftCardAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB73751123FE97740087B5E1 /* Build configuration list for PBXNativeTarget "GiftCardAppTests" */;
+			buildPhases = (
+				AB73750123FE97740087B5E1 /* Sources */,
+				AB73750223FE97740087B5E1 /* Frameworks */,
+				AB73750323FE97740087B5E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB73750723FE97740087B5E1 /* PBXTargetDependency */,
+			);
+			name = GiftCardAppTests;
+			productName = GiftCardAppTests;
+			productReference = AB73750523FE97740087B5E1 /* GiftCardAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB7374E723FE976F0087B5E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Quidco;
+				TargetAttributes = {
+					AB7374EE23FE976F0087B5E1 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					AB73750423FE97740087B5E1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = AB7374EE23FE976F0087B5E1;
+					};
+				};
+			};
+			buildConfigurationList = AB7374EA23FE976F0087B5E1 /* Build configuration list for PBXProject "GiftCardApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB7374E623FE976F0087B5E1;
+			productRefGroup = AB7374F023FE976F0087B5E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB7374EE23FE976F0087B5E1 /* GiftCardApp */,
+				AB73750423FE97740087B5E1 /* GiftCardAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB7374ED23FE976F0087B5E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB7374FF23FE97740087B5E1 /* LaunchScreen.storyboard in Resources */,
+				AB7374FC23FE97740087B5E1 /* Assets.xcassets in Resources */,
+				AB7374FA23FE976F0087B5E1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB73750323FE97740087B5E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB7374EB23FE976F0087B5E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB7374F723FE976F0087B5E1 /* HomeViewController.swift in Sources */,
+				AB7374F323FE976F0087B5E1 /* AppDelegate.swift in Sources */,
+				AB73752923FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift in Sources */,
+				AB981D4823FEF62B00F80027 /* MyAPIClient.swift in Sources */,
+				AB981D5923FFDDFC00F80027 /* DenominationButton.swift in Sources */,
+				AB981D4623FEF62B00F80027 /* Buttons.swift in Sources */,
+				AB73751C23FEA2D00087B5E1 /* GiftCardViewController.swift in Sources */,
+				AB73752023FEA43A0087B5E1 /* GiftCard.swift in Sources */,
+				AB981D5123FF00F100F80027 /* EmojiCell.swift in Sources */,
+				AB981D4923FEF62B00F80027 /* SettingsViewController.swift in Sources */,
+				AB981D4A23FEF62B00F80027 /* CheckoutRowView.swift in Sources */,
+				AB7374F523FE976F0087B5E1 /* SceneDelegate.swift in Sources */,
+				AB981D4B23FEF62B00F80027 /* CheckoutViewController.swift in Sources */,
+				AB981D4723FEF62B00F80027 /* BrowseProductsViewController.swift in Sources */,
+				AB73752523FEA62D0087B5E1 /* UIColor+Ext.swift in Sources */,
+				AB981D5723FF017A00F80027 /* UIColor+Stripe.swift in Sources */,
+				AB981D5323FF012D00F80027 /* EmojiCheckoutCell.swift in Sources */,
+				AB73751E23FEA3280087B5E1 /* ConfirmationViewController.swift in Sources */,
+				AB73752223FEA44D0087B5E1 /* GiftCardViewModel.swift in Sources */,
+				AB73752723FEABC20087B5E1 /* HomeNavigationController.swift in Sources */,
+				AB981D5B23FFE98B00F80027 /* GiftCardView.swift in Sources */,
+				AB981D5523FF015F00F80027 /* PaymentContextFooterView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB73750123FE97740087B5E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB73750A23FE97740087B5E1 /* GiftCardAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB73750723FE97740087B5E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB7374EE23FE976F0087B5E1 /* GiftCardApp */;
+			targetProxy = AB73750623FE97740087B5E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB7374F823FE976F0087B5E1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB7374F923FE976F0087B5E1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB7374FD23FE97740087B5E1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB7374FE23FE97740087B5E1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB73750C23FE97740087B5E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AB73750D23FE97740087B5E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB73750F23FE97740087B5E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTRX47ZAU4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = GiftCardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.quidco.GiftCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB73751023FE97740087B5E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTRX47ZAU4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = GiftCardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.quidco.GiftCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB73751223FE97740087B5E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LCGP6W5532;
+				INFOPLIST_FILE = GiftCardAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.quidco.GiftCardAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiftCardApp.app/GiftCardApp";
+			};
+			name = Debug;
+		};
+		AB73751323FE97740087B5E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LCGP6W5532;
+				INFOPLIST_FILE = GiftCardAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.quidco.GiftCardAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiftCardApp.app/GiftCardApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB7374EA23FE976F0087B5E1 /* Build configuration list for PBXProject "GiftCardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB73750C23FE97740087B5E1 /* Debug */,
+				AB73750D23FE97740087B5E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB73750E23FE97740087B5E1 /* Build configuration list for PBXNativeTarget "GiftCardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB73750F23FE97740087B5E1 /* Debug */,
+				AB73751023FE97740087B5E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB73751123FE97740087B5E1 /* Build configuration list for PBXNativeTarget "GiftCardAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB73751223FE97740087B5E1 /* Debug */,
+				AB73751323FE97740087B5E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB7374E723FE976F0087B5E1 /* Project object */;
+}

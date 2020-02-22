@@ -1,0 +1,5 @@
+github "ReactiveX/RxSwift"
+github "kishikawakatsumi/KeychainAccess"
+github "stripe/stripe-ios"
+gitHub "Alamofire/Alamofire"
+gitHub "HeroTransitions/Hero"
