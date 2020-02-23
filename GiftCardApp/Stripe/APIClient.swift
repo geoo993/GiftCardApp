@@ -69,20 +69,34 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         let url = self.baseURL.appendingPathComponent("ephemeral_keys")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         urlComponents.queryItems =
-            [URLQueryItem(name: "api_version", value: apiVersion),
-             URLQueryItem(name: "customer_id", value: "cus_Gm0PudbOfgmma2")
+            [URLQueryItem(name: "api_version", value: apiVersion),// "2019-05-16"
+             URLQueryItem(name: "customer_id", value: "cus_GmzZKoRobKM6D2")
         ]
-        print(urlComponents.url)
+        
         var request = URLRequest(url: urlComponents.url!)
+        //var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let parameters = ["api_version" : apiVersion, "customer_id" : "cus_GmzZKoRobKM6D2"]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch let error {
+            print("error while serialization parameters is \(error.localizedDescription)")
+        }
+        
+        print(urlComponents.url)
+        print(request)
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard let response = response as? HTTPURLResponse,
                 response.statusCode == 200,
                 let data = data,
-                let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]) as [String : Any]??) else {
+                let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]) as [String : Any]??)
+                    else {
                 completion(nil, error)
                 return
             }
+            print(json)
             completion(json, nil)
         })
         task.resume()

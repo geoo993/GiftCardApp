@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Stripe.setDefaultPublishableKey("pk_test_OXoOp4vaK4562vw3ozqj89EL00ArA3Tokq")
-        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let navigationController = storyboard.instantiateViewController(withIdentifier: HomeNavigationController.UIConstant.storyboardID)
         //let rootVC = BrowseProductsViewController()

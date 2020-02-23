@@ -31,7 +31,7 @@
 		AB981D3A23FED17500F80027 /* Stripe.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D2F23FED14F00F80027 /* Stripe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB981D4623FEF62B00F80027 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4023FEF62B00F80027 /* Buttons.swift */; };
 		AB981D4723FEF62B00F80027 /* BrowseProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4123FEF62B00F80027 /* BrowseProductsViewController.swift */; };
-		AB981D4823FEF62B00F80027 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4223FEF62B00F80027 /* MyAPIClient.swift */; };
+		AB981D4823FEF62B00F80027 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4223FEF62B00F80027 /* APIClient.swift */; };
 		AB981D4923FEF62B00F80027 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4323FEF62B00F80027 /* SettingsViewController.swift */; };
 		AB981D4A23FEF62B00F80027 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */; };
 		AB981D4B23FEF62B00F80027 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */; };
@@ -101,7 +101,7 @@
 		AB981D2F23FED14F00F80027 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = Frameworks/Stripe.framework; sourceTree = SOURCE_ROOT; };
 		AB981D4023FEF62B00F80027 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		AB981D4123FEF62B00F80027 /* BrowseProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseProductsViewController.swift; sourceTree = "<group>"; };
-		AB981D4223FEF62B00F80027 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
+		AB981D4223FEF62B00F80027 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		AB981D4323FEF62B00F80027 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
 		AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 				AB981D4023FEF62B00F80027 /* Buttons.swift */,
 				AB981D4423FEF62B00F80027 /* CheckoutRowView.swift */,
 				AB981D4523FEF62B00F80027 /* CheckoutViewController.swift */,
-				AB981D4223FEF62B00F80027 /* MyAPIClient.swift */,
+				AB981D4223FEF62B00F80027 /* APIClient.swift */,
 				AB981D4323FEF62B00F80027 /* SettingsViewController.swift */,
 			);
 			path = Stripe;
@@ -393,7 +393,7 @@
 				AB7374F723FE976F0087B5E1 /* HomeViewController.swift in Sources */,
 				AB7374F323FE976F0087B5E1 /* AppDelegate.swift in Sources */,
 				AB73752923FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift in Sources */,
-				AB981D4823FEF62B00F80027 /* MyAPIClient.swift in Sources */,
+				AB981D4823FEF62B00F80027 /* APIClient.swift in Sources */,
 				AB981D5923FFDDFC00F80027 /* DenominationButton.swift in Sources */,
 				AB981D4623FEF62B00F80027 /* Buttons.swift in Sources */,
 				AB73751C23FEA2D00087B5E1 /* GiftCardViewController.swift in Sources */,

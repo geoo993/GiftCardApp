@@ -69,7 +69,7 @@ final class GiftCardViewModel {
             self?.cards.accept(result)
         }
         
-        getBrands(completion: completion)
+        //getBrands(completion: completion)
         //searchRequest(closure: nil)
         self.cards.accept(mockCards)
         self.isRefreshing.accept(false)
