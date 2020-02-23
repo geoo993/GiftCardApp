@@ -30,19 +30,18 @@ final class GiftCardViewModel {
     private var mockCards: [GiftCard] {
         let denominations = [Decimal(10), Decimal(25), Decimal(50)]
         return [
-            GiftCard(id: 1, name: "Amazon Gift Certificate", logo: .amazon, denomination: denominations),
-            GiftCard(id: 2, name: "Tesco In-store", logo: .tesco, denomination: denominations),
-            GiftCard(id: 3, name: "Debenhams", logo: .debenhams, denomination: denominations),
-            GiftCard(id: 4, name: "Argos", logo: .argos, denomination: denominations),
-            GiftCard(id: 5, name: "Starbucks", logo: .starbucks, denomination: denominations),
-            GiftCard(id: 6, name: "iTunes", logo: .itunes, denomination: denominations),
-            GiftCard(id: 7, name: "Uber", logo: .uber, denomination: denominations),
-            GiftCard(id: 8, name: "Primark", logo: .primark, denomination: denominations),
-            GiftCard(id: 9, name: "Google Play", logo: .google, denomination: denominations),
-            GiftCard(id: 10, name: "Virgin Experience Days", logo: .virgin, denomination: denominations),
-            GiftCard(id: 11, name: "Caffè Nero", logo: .caffeNero, denomination: denominations),
-            GiftCard(id: 12, name: "Pizza Express", logo: .pizzaExpress, denomination: denominations),
-            //GiftCard(id: 13, name: "New Look", logo: "newlook", denomination: denominations),
+            GiftCard(id: 1, name: "Amazon Gift Certificate", logo: .amazon, denominations: denominations),
+            GiftCard(id: 2, name: "Tesco In-store", logo: .tesco, denominations: denominations),
+            GiftCard(id: 3, name: "Debenhams", logo: .debenhams, denominations: denominations),
+            GiftCard(id: 4, name: "Argos", logo: .argos, denominations: denominations),
+            GiftCard(id: 5, name: "Starbucks", logo: .starbucks, denominations: denominations),
+            GiftCard(id: 6, name: "iTunes", logo: .itunes, denominations: denominations),
+            GiftCard(id: 7, name: "Uber", logo: .uber, denominations: denominations),
+            GiftCard(id: 8, name: "Primark", logo: .primark, denominations: denominations),
+            GiftCard(id: 9, name: "Google Play", logo: .google, denominations: denominations),
+            GiftCard(id: 10, name: "Virgin Experience Days", logo: .virgin, denominations: denominations),
+            GiftCard(id: 11, name: "Caffè Nero", logo: .caffeNero, denominations: denominations),
+            GiftCard(id: 12, name: "Pizza Express", logo: .pizzaExpress, denominations: denominations),
         ]
     }
 

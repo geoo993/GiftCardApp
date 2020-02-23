@@ -61,6 +61,6 @@ struct GiftCard {
     let id: UInt
     let name: String
     let logo: Logo
-    let denomination: [Decimal]
+    let denominations: [Decimal]
 }
 

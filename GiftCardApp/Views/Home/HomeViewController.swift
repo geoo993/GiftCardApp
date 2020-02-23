@@ -125,7 +125,7 @@ extension HomeViewController {
         guard let destinationVC = segue.destination as? GiftCardViewController else { return }
         if let lastIndexpath = giftcardsCollecionView.indexPathsForSelectedItems?.last {
             let item = viewModel.cards.value[lastIndexpath.row]
-            destinationVC.set(merchant: item.name, logo: item.logo, denominations: item.denomination)
+            destinationVC.card = item
         }
     }
     

@@ -20,26 +20,24 @@ public final class GiftCardViewController: UIViewController {
     
     // 1) To get started with this demo, first head to https://dashboard.stripe.com/account/apikeys
     // and copy your "Test Publishable Key" (it looks like pk_test_abcdef) into the line below.
-    var stripePublishableKey = "pk_test_K85SBlgfWjU4xuS0IsagbLz700YVn4uYQ2"
+    private var stripePublishableKey = "pk_test_K85SBlgfWjU4xuS0IsagbLz700YVn4uYQ2"
 
     // 2) Next, optionally, to have this demo save your user's payment details, head to
     // https://github.com/stripe/example-ios-backend/tree/v18.1.0, click "Deploy to Heroku", and follow
     // the instructions (don't worry, it's free). Replace nil on the line below with your
     // Heroku URL (it looks like https://blazing-sunrise-1234.herokuapp.com ).
-    var backendBaseURL: String? = "https://peaceful-wildwood-56269.herokuapp.com"
+    private var backendBaseURL: String? = "https://peaceful-wildwood-56269.herokuapp.com"
 
     // 3) Optionally, to enable Apple Pay, follow the instructions at https://stripe.com/docs/mobile/apple-pay
     // to create an Apple Merchant ID. Replace nil on the line below with it (it looks like merchant.com.yourappname).
-    var appleMerchantID: String? = ""
+    private var appleMerchantID: String? = ""
 
     // These values will be shown to the user when they purchase with Apple Pay.
-    var paymentCurrency: String = ""
+    private var paymentCurrency: String = ""
 
-    var paymentContext: STPPaymentContext!
+    private var paymentContext: STPPaymentContext!
     
-    private var merchant: String = ""
-    private var logo: Logo = .amazon
-    private var denominations: [Decimal] = []
+    var card: GiftCard?
     private var selectedIndex: Int = 0
     
     public required init?(coder: NSCoder) {
@@ -61,49 +59,7 @@ public final class GiftCardViewController: UIViewController {
 
         // This code is included here for the sake of readability, but in your application you should set up your configuration and theme earlier, preferably in your App Delegate.
         Stripe.setDefaultPublishableKey(self.stripePublishableKey)
-        /*
-                let config = STPPaymentConfiguration.shared()
-                config.appleMerchantIdentifier = self.appleMerchantID
-                config.companyName = self.companyName
-                config.requiredBillingAddressFields = settings.requiredBillingAddressFields
-                config.requiredShippingAddressFields = settings.requiredShippingAddressFields
-                config.shippingType = settings.shippingType
-                config.additionalPaymentOptions = settings.additionalPaymentOptions
-                self.country = settings.country
-                self.paymentCurrency = settings.currency
-                
-                let customerContext = STPCustomerContext(keyProvider: APIClient.shared)
-                let paymentContext = STPPaymentContext(customerContext: customerContext,
-                                                       configuration: config,
-                                                       theme: settings.theme)
-                let userInformation = STPUserInformation()
-                paymentContext.prefilledInformation = userInformation
-                paymentContext.paymentAmount = products.reduce(0) { result, product in
-                    return result + product.price
-                }
-                paymentContext.paymentCurrency = self.paymentCurrency
-
-                let paymentSelectionFooter = PaymentContextFooterView(text:
-                    """
-        The sample backend attaches some test cards:
-
-        • 4242 4242 4242 4242
-            A default VISA card.
-
-        • 4000 0000 0000 3220
-            Use this to test 3D Secure 2 authentication.
-
-        See https://stripe.com/docs/testing.
-        """)
-                paymentSelectionFooter.theme = settings.theme
-                paymentContext.paymentOptionsViewControllerFooterView = paymentSelectionFooter
-
-                let addCardFooter = PaymentContextFooterView(text: "You can add custom footer views to the add card screen.")
-                addCardFooter.theme = settings.theme
-                paymentContext.addCardViewControllerFooterView = addCardFooter
-
-                self.paymentContext = paymentContext
-        */
+       
         let customerContext = STPCustomerContext(keyProvider: APIClient.shared)
         self.paymentContext = STPPaymentContext(customerContext: customerContext)
         self.paymentContext.delegate = self
@@ -124,35 +80,31 @@ public final class GiftCardViewController: UIViewController {
 //        self.containerView?.hero.id = "cardhero"
 //        imageView?.hero.id = "cardimagehero"
         
-        titleLabel?.text = merchant + " Gift Card"
-        imageView?.image = UIImage(named: logo.background)
-        if denominations.count >= 2 {
-            
-        } else if denominations.count >= 1 {
-            
-        } else if denominations.count == 1 {
-            
-        } else {
-            
+        if let giftCard = card {
+            titleLabel?.text = giftCard.name + " Gift Card"
+            imageView?.image = UIImage(named: giftCard.logo.background)
+            if giftCard.denominations.count >= 2 {
+                
+            } else if giftCard.denominations.count >= 1 {
+                
+            } else if giftCard.denominations.count == 1 {
+                
+            } else {
+                
+            }
         }
     }
     
     func chargePayment(at index: Int) {
-        let denomination = denominations[index]
+        guard let giftCard = card else { return }
+        let denomination = giftCard.denominations[index]
         let result = NSDecimalNumber(decimal: denomination)
-        let amount = 100//Int(truncating: result) * 100
+        let amount = Int(truncating: result) * 100
         self.paymentContext.paymentAmount = amount
         self.paymentContext.presentPaymentOptionsViewController()
         //self.paymentContext.presentPaymentOptionsViewController()
     }
     
-    func set(merchant: String, logo: Logo, denominations: [Decimal]) {
-        self.merchant = merchant
-        self.logo = logo
-        self.denominations = denominations
-    }
-    
-
     @IBAction func done(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -186,11 +138,39 @@ extension GiftCardViewController: STPPaymentContextDelegate {
     
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
         
+        // Request a PaymentIntent from your backend
+        APIClient.shared.createPaymentIntent(product: self.card, shippingMethod: paymentContext.selectedShippingMethod) { result in
+            switch result {
+            case .success(let clientSecret):
+                // Assemble the PaymentIntent parameters
+                let paymentIntentParams = STPPaymentIntentParams(clientSecret: clientSecret)
+                paymentIntentParams.paymentMethodId = paymentResult.paymentMethod?.stripeId
+
+                // Confirm the PaymentIntent
+                STPPaymentHandler.shared().confirmPayment(withParams: paymentIntentParams, authenticationContext: paymentContext) { status, paymentIntent, error in
+                    switch status {
+                    case .succeeded:
+                        // Your backend asynchronously fulfills the customer's order, e.g. via webhook
+                        completion(.success, nil)
+                    case .failed:
+                        completion(.error, error) // Report error
+                    case .canceled:
+                        completion(.userCancellation, nil) // Customer cancelled
+                    @unknown default:
+                        completion(.error, nil)
+                    }
+                }
+            case .failure(let error):
+                completion(.error, error) // Report error from your API
+                break
+            }
+        }
     }
     
     public func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         
     }
+    
     
 }
 
@@ -202,9 +182,9 @@ extension GiftCardViewController {
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        guard let destinationVC = segue.destination as? ConfirmationViewController else { return }
-        let amount = denominations[selectedIndex]
-        destinationVC.setAmount(value: amount, logo: logo)
+        guard let destinationVC = segue.destination as? ConfirmationViewController, let giftCard = card else { return }
+        let amount = giftCard.denominations[selectedIndex]
+        destinationVC.setAmount(value: amount, logo: giftCard.logo)
     }
     
 }

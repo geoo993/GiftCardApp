@@ -31,7 +31,7 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         }
     }
     
-    func createPaymentIntent(products: [Product], shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
+    func createPaymentIntent(product: GiftCard?, shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
         let url = self.baseURL.appendingPathComponent("create_payment_intent")
         var params: [String: Any] = [
             "metadata": [
@@ -39,9 +39,7 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 "payment_request_id": "B3E611D1-5FA1-4410-9CEC-00958A5126CB",
             ],
         ]
-        params["products"] = products.map({ (p) -> String in
-            return p.emoji
-        })
+        params["product"] = product?.name ?? ""
         if let shippingMethod = shippingMethod {
             params["shipping"] = shippingMethod.identifier
         }
@@ -74,7 +72,6 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         ]
         
         var request = URLRequest(url: urlComponents.url!)
-        //var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -85,8 +82,6 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
             print("error while serialization parameters is \(error.localizedDescription)")
         }
         
-        print(urlComponents.url)
-        print(request)
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard let response = response as? HTTPURLResponse,
                 response.statusCode == 200,
@@ -96,7 +91,6 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 completion(nil, error)
                 return
             }
-            print(json)
             completion(json, nil)
         })
         task.resume()
