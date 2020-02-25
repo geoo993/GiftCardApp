@@ -8,6 +8,7 @@
 
 import Foundation
 import Stripe
+import Alamofire
 
 class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
     enum APIError: Error {
@@ -22,6 +23,8 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
     }
 
     static let shared = APIClient()
+    
+    var paymentCurrency: String = "GBP"
     var baseURLString: String? = nil
     var baseURL: URL {
         if let urlString = self.baseURLString, let url = URL(string: urlString) {
@@ -31,6 +34,48 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         }
     }
     
+    func charge(result: STPPaymentResult, amount: Int, shippingAddress: STPAddress?, shippingMethod: PKShippingMethod?, completion: @escaping STPErrorBlock) {
+        let url = self.baseURL.appendingPathComponent("charge")
+        var params: [String: Any] = [
+            "source": result.paymentMethod?.stripeId ?? "",
+            "amount": amount,
+            "currency": paymentCurrency,
+            "customer_id": "cus_GmzZKoRobKM6D2"
+        ]
+        params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
+        AF.request(url, method: .post, parameters: params)
+            .validate(statusCode: 200..<400)
+            .responseString { (response) in
+                switch response.result {
+                case .success(let clientSecret):
+                    print(clientSecret)
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+    }
+    
+    func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
+        let url = self.baseURL.appendingPathComponent("ephemeral_keys")
+        let params: [String: Any] = [
+            "api_version": apiVersion,
+            "customer_id": "cus_GmzZKoRobKM6D2"
+        ]
+        AF.request(url, method: .post, parameters: params)
+            .validate(statusCode: 200..<400)
+            .responseJSON{ (response) in
+                switch response.result {
+                case .success(let json):
+                    print(json)
+                    completion(json as? [String: AnyObject], nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+        }
+    }
+    
+    /*
     func createPaymentIntent(product: GiftCard?, shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
         let url = self.baseURL.appendingPathComponent("create_payment_intent")
         var params: [String: Any] = [
@@ -91,9 +136,11 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 completion(nil, error)
                 return
             }
+            print(json)
             completion(json, nil)
         })
         task.resume()
     }
+ */
 
 }

@@ -32,13 +32,21 @@ public final class GiftCardViewController: UIViewController {
     // to create an Apple Merchant ID. Replace nil on the line below with it (it looks like merchant.com.yourappname).
     private var appleMerchantID: String? = ""
 
-    // These values will be shown to the user when they purchase with Apple Pay.
-    private var paymentCurrency: String = ""
-
     private var paymentContext: STPPaymentContext!
+    private var paymentInProgress: Bool = false {
+        didSet {
+            
+        }
+    }
+    var amount: Int {
+        guard let giftCard = card else { return 0 }
+        let denomination = giftCard.denominations[selectedIndex]
+        let result = NSDecimalNumber(decimal: denomination)
+        return Int(truncating: result) * 100
+    }
     
-    var card: GiftCard?
-    private var selectedIndex: Int = 0
+    private var selectedIndex = 0
+    public var card: GiftCard?
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -96,12 +104,12 @@ public final class GiftCardViewController: UIViewController {
     }
     
     func chargePayment(at index: Int) {
-        guard let giftCard = card else { return }
-        let denomination = giftCard.denominations[index]
-        let result = NSDecimalNumber(decimal: denomination)
-        let amount = Int(truncating: result) * 100
+        //guard let giftCard = card else { return }
+        self.selectedIndex = index
+        self.paymentInProgress = true
         self.paymentContext.paymentAmount = amount
-        self.paymentContext.presentPaymentOptionsViewController()
+//        self.paymentContext.presentPaymentOptionsViewController()
+        self.paymentContext.requestPayment()
         //self.paymentContext.presentPaymentOptionsViewController()
     }
     
@@ -110,26 +118,30 @@ public final class GiftCardViewController: UIViewController {
     }
   
     @IBAction func payOne(_ sender: UIButton) {
-        selectedIndex = 0
-        chargePayment(at: selectedIndex)
+        chargePayment(at: 0)
     }
     
     @IBAction func payTwo(_ sender: UIButton) {
-        selectedIndex = 1
-        chargePayment(at: selectedIndex)
+        chargePayment(at: 1)
     }
     
     @IBAction func payThree(_ sender: UIButton) {
-        selectedIndex = 2
-       chargePayment(at: selectedIndex)
+       chargePayment(at: 2)
     }
     
 }
 
 
 extension GiftCardViewController: STPPaymentContextDelegate {
-    public func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-        
+    enum CheckoutError: Error {
+        case unknown
+
+        var localizedDescription: String {
+            switch self {
+            case .unknown:
+                return "Unknown error"
+            }
+        }
     }
     
     public func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
@@ -138,6 +150,11 @@ extension GiftCardViewController: STPPaymentContextDelegate {
     
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
         
+        APIClient.shared.charge(result: paymentResult, amount: amount, shippingAddress: nil, shippingMethod: nil) { result in
+            
+        }
+        
+        /*
         // Request a PaymentIntent from your backend
         APIClient.shared.createPaymentIntent(product: self.card, shippingMethod: paymentContext.selectedShippingMethod) { result in
             switch result {
@@ -150,6 +167,10 @@ extension GiftCardViewController: STPPaymentContextDelegate {
                 STPPaymentHandler.shared().confirmPayment(withParams: paymentIntentParams, authenticationContext: paymentContext) { status, paymentIntent, error in
                     switch status {
                     case .succeeded:
+                        print(paymentIntent?.stripeId)
+                        print(paymentIntent?.receiptEmail)
+                        print(paymentIntent?.amount)
+                        print(paymentIntent?.currency)
                         // Your backend asynchronously fulfills the customer's order, e.g. via webhook
                         completion(.success, nil)
                     case .failed:
@@ -165,13 +186,53 @@ extension GiftCardViewController: STPPaymentContextDelegate {
                 break
             }
         }
+ */
     }
+    
+       
+    public func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        let alertController = UIAlertController(
+            title: "Error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            // Need to assign to _ because optional binding loses @discardableResult value
+            // https://bugs.swift.org/browse/SR-1681
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
+            self.paymentContext.retryLoading()
+        })
+        alertController.addAction(cancel)
+        alertController.addAction(retry)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     public func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
-        
+        self.paymentInProgress = false
+        let title: String
+        let message: String
+        switch status {
+        case .error:
+            title = "Error"
+            message = error?.localizedDescription ?? ""
+        case .success:
+            title = "Success"
+            message = "Your purchase was successful!"
+        case .userCancellation:
+            return()
+        @unknown default:
+            return()
+        }
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    
+
 }
 
 

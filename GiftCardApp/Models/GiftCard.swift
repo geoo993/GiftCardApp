@@ -57,7 +57,7 @@ enum Logo {
     }
 }
 
-struct GiftCard {
+public struct GiftCard {
     let id: UInt
     let name: String
     let logo: Logo
