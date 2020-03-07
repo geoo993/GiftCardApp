@@ -16,7 +16,6 @@ public final class ConfirmationViewController: UIViewController {
     
     private var logo: Logo = .amazon
     private var amount = Decimal()
-    private var selectedIndex: Int = 0
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,8 @@ public final class ConfirmationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func setAmount(value: Decimal, logo: Logo) {
-        self.amount = value
-        self.logo = logo
+    func setCard(card: GiftCard, amount: Decimal) {
+        self.amount = amount
+        self.logo = card.logo
     }
 }

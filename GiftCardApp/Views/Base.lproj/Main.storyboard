@@ -52,7 +52,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="cardImageView" destination="GRc-YH-01q" id="Twm-bD-b2q"/>
-                                            <segue destination="JtO-5A-mcH" kind="presentation" id="81m-lq-oet"/>
+                                            <segue destination="g1Q-en-98N" kind="presentation" id="xcQ-ly-Pwa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="595.6521739130435" y="154.6875"/>
         </scene>
-        <!--Gift Card View Controller-->
+        <!--Gift Card-->
         <scene sceneID="Ioz-63-ZoP">
             <objects>
                 <viewController storyboardIdentifier="GiftCardViewController" id="JtO-5A-mcH" customClass="GiftCardViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,25 +87,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m65-xV-Kqq">
-                                <rect key="frame" x="20" y="20" width="34" height="37"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="done:" destination="JtO-5A-mcH" eventType="touchUpInside" id="pqX-Fx-3y3"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wizgift" translatesAutoresizingMaskIntoConstraints="NO" id="WAf-mp-INt">
-                                <rect key="frame" x="177.5" y="18" width="59" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="F8z-rx-PBS"/>
-                                    <constraint firstAttribute="width" constant="59" id="eTT-um-EAK"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuV-fL-UQ2">
-                                <rect key="frame" x="35.5" y="84" width="343" height="557"/>
+                                <rect key="frame" x="35.5" y="142" width="343" height="557"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon group card" translatesAutoresizingMaskIntoConstraints="NO" id="7Xf-kc-mO6">
                                         <rect key="frame" x="-5" y="-5" width="353" height="567"/>
@@ -123,15 +106,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Voucher Amount" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-U2-uyD">
-                                                <rect key="frame" x="81" y="40" width="181" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWl-2o-gLY">
+                                                <rect key="frame" x="43.5" y="42" width="256" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="KIC-4H-WMP"/>
+                                                    <constraint firstAttribute="height" constant="30" id="77p-28-ER1"/>
+                                                    <constraint firstAttribute="width" constant="256" id="uTy-fy-Wgi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Select Payment Type"/>
+                                                <connections>
+                                                    <action selector="selectPaymet:" destination="JtO-5A-mcH" eventType="touchUpInside" id="rG3-uC-fKc"/>
+                                                </connections>
+                                            </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-pay" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-CK-gJe">
                                                 <rect key="frame" x="143.5" y="82" width="56" height="24"/>
                                                 <constraints>
@@ -162,14 +148,18 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="payOne:" destination="JtO-5A-mcH" eventType="touchUpInside" id="wPl-fy-7Sn"/>
-                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="w4d-hC-0fa"/>
                                                                 </connections>
                                                             </button>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ppQ-UN-XHt">
+                                                                <rect key="frame" x="161.5" y="22.5" width="20" height="20"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="65" id="GoC-3b-ryO"/>
+                                                            <constraint firstItem="ppQ-UN-XHt" firstAttribute="centerY" secondItem="3Po-lP-6KN" secondAttribute="centerY" id="K46-sd-RtH"/>
                                                             <constraint firstItem="XdP-1y-apN" firstAttribute="height" secondItem="3Po-lP-6KN" secondAttribute="height" id="RkM-CQ-SBb"/>
                                                             <constraint firstItem="XdP-1y-apN" firstAttribute="centerY" secondItem="3Po-lP-6KN" secondAttribute="centerY" id="blc-VE-ciN"/>
+                                                            <constraint firstItem="ppQ-UN-XHt" firstAttribute="centerX" secondItem="3Po-lP-6KN" secondAttribute="centerX" id="uys-2k-oiv"/>
                                                             <constraint firstItem="XdP-1y-apN" firstAttribute="centerX" secondItem="3Po-lP-6KN" secondAttribute="centerX" id="vKb-AL-VzR"/>
                                                         </constraints>
                                                     </view>
@@ -193,14 +183,18 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="payTwo:" destination="JtO-5A-mcH" eventType="touchUpInside" id="KEU-Yf-pul"/>
-                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="UZx-FW-WfZ"/>
                                                                 </connections>
                                                             </button>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kkk-qR-bCd">
+                                                                <rect key="frame" x="161.5" y="22.5" width="20" height="20"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="6iW-5Q-CTz" firstAttribute="height" secondItem="HsO-BD-93n" secondAttribute="height" id="4gz-bE-DNf"/>
                                                             <constraint firstAttribute="height" constant="65" id="OVb-xX-B8t"/>
+                                                            <constraint firstItem="kkk-qR-bCd" firstAttribute="centerY" secondItem="HsO-BD-93n" secondAttribute="centerY" id="Oa5-A0-hlY"/>
                                                             <constraint firstItem="6iW-5Q-CTz" firstAttribute="centerY" secondItem="HsO-BD-93n" secondAttribute="centerY" id="PBP-01-HUk"/>
+                                                            <constraint firstItem="kkk-qR-bCd" firstAttribute="centerX" secondItem="HsO-BD-93n" secondAttribute="centerX" id="XFi-OB-IGD"/>
                                                             <constraint firstItem="6iW-5Q-CTz" firstAttribute="centerX" secondItem="HsO-BD-93n" secondAttribute="centerX" id="b9t-c6-hUB"/>
                                                         </constraints>
                                                     </view>
@@ -224,14 +218,18 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="payThree:" destination="JtO-5A-mcH" eventType="touchUpInside" id="Kp0-yx-Fzl"/>
-                                                                    <segue destination="imQ-GM-gNo" kind="presentation" id="Z7M-lB-pea"/>
                                                                 </connections>
                                                             </button>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="s17-x8-MT2">
+                                                                <rect key="frame" x="161.5" y="22.5" width="20" height="20"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="s17-x8-MT2" firstAttribute="centerY" secondItem="8PO-9Y-ztN" secondAttribute="centerY" id="46f-W8-fq0"/>
                                                             <constraint firstItem="H6j-En-Qml" firstAttribute="centerX" secondItem="8PO-9Y-ztN" secondAttribute="centerX" id="ENE-6y-4Cz"/>
                                                             <constraint firstAttribute="height" constant="65" id="Nkm-GQ-wsl"/>
                                                             <constraint firstItem="H6j-En-Qml" firstAttribute="height" secondItem="8PO-9Y-ztN" secondAttribute="height" id="TYt-G1-yDM"/>
+                                                            <constraint firstItem="s17-x8-MT2" firstAttribute="centerX" secondItem="8PO-9Y-ztN" secondAttribute="centerX" id="v7M-yL-DA0"/>
                                                             <constraint firstItem="H6j-En-Qml" firstAttribute="centerY" secondItem="8PO-9Y-ztN" secondAttribute="centerY" id="wXZ-H9-jAN"/>
                                                         </constraints>
                                                     </view>
@@ -244,18 +242,18 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="S1w-aZ-40K" secondAttribute="bottom" id="84a-Zw-oMy"/>
+                                            <constraint firstItem="eWl-2o-gLY" firstAttribute="centerX" secondItem="bl3-rk-BMY" secondAttribute="centerX" id="8ih-Op-akM"/>
                                             <constraint firstItem="bl3-rk-BMY" firstAttribute="top" secondItem="IBZ-4M-1Dp" secondAttribute="top" constant="15" id="AtX-lg-jat"/>
                                             <constraint firstItem="S1w-aZ-40K" firstAttribute="leading" secondItem="IBZ-4M-1Dp" secondAttribute="leading" id="J8M-iB-wld"/>
                                             <constraint firstAttribute="width" constant="343" id="Jud-MW-FLe"/>
-                                            <constraint firstItem="uXW-U2-uyD" firstAttribute="top" secondItem="bl3-rk-BMY" secondAttribute="bottom" id="Mwx-GM-ILz"/>
+                                            <constraint firstItem="eWl-2o-gLY" firstAttribute="top" secondItem="bl3-rk-BMY" secondAttribute="bottom" constant="2" id="N0T-pJ-j3O"/>
                                             <constraint firstItem="bl3-rk-BMY" firstAttribute="leading" secondItem="IBZ-4M-1Dp" secondAttribute="leading" id="Ngy-Co-Ktk"/>
-                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="centerX" secondItem="uXW-U2-uyD" secondAttribute="centerX" id="Svn-pM-9bk"/>
-                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="top" secondItem="uXW-U2-uyD" secondAttribute="bottom" constant="12" id="Zav-dC-UgF"/>
+                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="centerX" secondItem="eWl-2o-gLY" secondAttribute="centerX" id="Svn-pM-9bk"/>
                                             <constraint firstAttribute="trailing" secondItem="bl3-rk-BMY" secondAttribute="trailing" id="aH6-86-8CY"/>
+                                            <constraint firstItem="neZ-CK-gJe" firstAttribute="top" secondItem="eWl-2o-gLY" secondAttribute="bottom" constant="10" id="hub-lm-R1I"/>
                                             <constraint firstAttribute="trailing" secondItem="S1w-aZ-40K" secondAttribute="trailing" id="jWs-WQ-MYI"/>
                                             <constraint firstAttribute="height" constant="369" id="oAN-k7-W29"/>
                                             <constraint firstItem="S1w-aZ-40K" firstAttribute="top" secondItem="neZ-CK-gJe" secondAttribute="bottom" constant="10" id="qSo-Bf-TDT"/>
-                                            <constraint firstItem="uXW-U2-uyD" firstAttribute="centerX" secondItem="bl3-rk-BMY" secondAttribute="centerX" id="qfx-lj-lfF"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -289,34 +287,45 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tuV-fL-UQ2" firstAttribute="centerX" secondItem="lal-sH-nem" secondAttribute="centerX" id="JKG-ST-dsG"/>
-                            <constraint firstItem="tuV-fL-UQ2" firstAttribute="top" secondItem="WAf-mp-INt" secondAttribute="bottom" constant="25" id="OJw-zF-1fO"/>
-                            <constraint firstItem="m65-xV-Kqq" firstAttribute="top" secondItem="Kzr-qr-41N" secondAttribute="top" constant="20" id="OKy-I2-tpl"/>
-                            <constraint firstItem="m65-xV-Kqq" firstAttribute="leading" secondItem="Kzr-qr-41N" secondAttribute="leading" constant="20" id="WJf-5k-b2k"/>
-                            <constraint firstItem="WAf-mp-INt" firstAttribute="top" secondItem="Kzr-qr-41N" secondAttribute="top" constant="18" id="ZBd-Fd-0wI"/>
-                            <constraint firstItem="m65-xV-Kqq" firstAttribute="centerY" secondItem="WAf-mp-INt" secondAttribute="centerY" id="bAf-e7-Mzk"/>
-                            <constraint firstItem="WAf-mp-INt" firstAttribute="centerX" secondItem="lal-sH-nem" secondAttribute="centerX" id="hNI-6d-XZ8"/>
+                            <constraint firstItem="tuV-fL-UQ2" firstAttribute="top" secondItem="Kzr-qr-41N" secondAttribute="top" constant="86" id="OJw-zF-1fO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kzr-qr-41N"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Gift Card" id="WX4-xS-Th9">
+                        <barButtonItem key="leftBarButtonItem" image="multiply" catalog="system" id="6aL-Rg-mJZ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="done:" destination="JtO-5A-mcH" id="2jt-bu-9LV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator1" destination="ppQ-UN-XHt" id="e79-g4-40Q"/>
+                        <outlet property="activityIndicator2" destination="kkk-qR-bCd" id="PTM-5s-GNb"/>
+                        <outlet property="activityIndicator3" destination="s17-x8-MT2" id="L2s-R3-KVF"/>
                         <outlet property="imageView" destination="7Xf-kc-mO6" id="LKd-Kr-OJ7"/>
+                        <outlet property="paymentButton1" destination="XdP-1y-apN" id="PyO-97-4zU"/>
+                        <outlet property="paymentButton2" destination="6iW-5Q-CTz" id="fEi-Zs-6K3"/>
+                        <outlet property="paymentButton3" destination="H6j-En-Qml" id="9fn-ej-mEp"/>
+                        <outlet property="paymentTypeButton" destination="eWl-2o-gLY" id="6dY-cY-a3i"/>
+                        <outlet property="paymentTypeImageView" destination="neZ-CK-gJe" id="lQV-2k-BoO"/>
                         <outlet property="titleLabel" destination="bl3-rk-BMY" id="1vz-mT-yZ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azp-3k-JEJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="152"/>
+            <point key="canvasLocation" x="2366.666666666667" y="151.33928571428569"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="iW7-ji-dmZ">
             <objects>
-                <viewController id="imQ-GM-gNo" customClass="ConfirmationViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmationViewController" id="imQ-GM-gNo" customClass="ConfirmationViewController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W9r-LH-eBY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xde-le-uXb" customClass="GiftCardView" customModule="GiftCardApp" customModuleProvider="target">
-                                <rect key="frame" x="35.5" y="68" width="343" height="263"/>
+                                <rect key="frame" x="35.5" y="112" width="343" height="263"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon card" translatesAutoresizingMaskIntoConstraints="NO" id="BMJ-2I-7mZ">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="188"/>
@@ -346,14 +355,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-No-NAM">
-                                <rect key="frame" x="16" y="361" width="382" height="60"/>
+                                <rect key="frame" x="16" y="405" width="382" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Gift Card is on the way to Your email." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwQ-6D-mFM">
-                                <rect key="frame" x="67" y="429" width="280" height="41"/>
+                                <rect key="frame" x="67" y="473" width="280" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="SaF-yy-U30"/>
                                 </constraints>
@@ -362,7 +371,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-KL-oBj">
-                                <rect key="frame" x="188.5" y="510" width="37" height="30"/>
+                                <rect key="frame" x="188.5" y="554" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="done:" destination="imQ-GM-gNo" eventType="touchUpInside" id="9Th-dO-7Fm"/>
@@ -390,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aX1-gc-WAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="148"/>
+            <point key="canvasLocation" x="3184.057971014493" y="147.99107142857142"/>
         </scene>
         <!--Home Navigation Controller-->
         <scene sceneID="Eg3-Zw-XsZ">
@@ -420,14 +429,39 @@
             </objects>
             <point key="canvasLocation" x="-267" y="155"/>
         </scene>
+        <!--Gift Card Navigation Controller-->
+        <scene sceneID="VMl-tL-dMD">
+            <objects>
+                <navigationController storyboardIdentifier="GiftCardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="g1Q-en-98N" customClass="GiftCardNavigationController" customModule="GiftCardApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8G4-gt-kHW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JtO-5A-mcH" kind="relationship" relationship="rootViewController" id="vLU-oc-JsK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ryn-vY-486" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456.521739130435" y="151.33928571428569"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Wizgift" width="101" height="43"/>
         <image name="amazon card" width="353" height="198"/>
         <image name="amazon group card" width="353" height="567"/>
         <image name="apple-pay" width="56" height="24"/>
+        <image name="multiply" catalog="system" width="64" height="54"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="w4d-hC-0fa"/>
-    </inferredMetricsTieBreakers>
 </document>

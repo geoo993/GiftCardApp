@@ -1,17 +1,17 @@
 //
-//  HomeNavigationController.swift
+//  GiftCardNavigationController.swift
 //  GiftCardApp
 //
-//  Created by George Quentin Ngounou on 20/02/2020.
+//  Created by GEORGE QUENTIN on 07/03/2020.
 //  Copyright © 2020 Quidco. All rights reserved.
 //
 
 import UIKit
 
-public final class HomeNavigationController: UINavigationController {
+class GiftCardNavigationController: UINavigationController {
 
     public enum UIConstant {
-        static let storyboardID = "HomeNavigationController"
+        static let storyboardID = "GiftCardViewController"
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -19,5 +19,4 @@ public final class HomeNavigationController: UINavigationController {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for:.default)
         UINavigationBar.appearance().shadowImage = UIImage()
     }
- 
 }

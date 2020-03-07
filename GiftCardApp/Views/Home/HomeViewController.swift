@@ -33,30 +33,6 @@ public final class HomeViewController: UIViewController {
         return UIScreen.main.bounds.width
     }()
     
-    lazy var titleView: UIImageView? = {
-        guard let image = UIImage(named: "Wizgift") else { return nil }
-        let imageView = UIImageView(image: image)
-        
-        let frame: CGRect
-        if let navigationController = self.navigationController {
-            let bannerWidth = navigationController.navigationBar.frame.size.width
-            let bannerHeight = navigationController.navigationBar.frame.size.height
-            
-            let bannerX = bannerWidth / 2 - image.size.width / 2
-            let bannerY = bannerHeight / 2 - image.size.height / 2
-            frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
-        } else {
-            let defaultSize = CGSize(width: 129, height: 63)
-            let bannerX = defaultSize.width / 2 - image.size.width / 2
-            let bannerY = defaultSize.height / 2 - image.size.height / 2
-            frame = CGRect(x: bannerX, y: bannerY, width: defaultSize.width, height: defaultSize.height)
-        }
-        imageView.frame = frame
-        imageView.contentMode = .scaleAspectFit
-        
-        return imageView
-    }()
-    
     private let viewModel = GiftCardViewModel()
     private let disposeBag = DisposeBag()
     private let refreshControl = UIRefreshControl()
@@ -68,20 +44,9 @@ public final class HomeViewController: UIViewController {
         setupBinding()
         reloadData()
     }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       
-    }
-    
-    override public func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
- 
+   
     func setup() {
-        overrideUserInterfaceStyle = .light
-        self.navigationItem.titleView = titleView
-
+        self.setTitleView()
     }
 
     func setupCollectionView() {
@@ -117,16 +82,16 @@ public final class HomeViewController: UIViewController {
 
 // MARK: -
 
-extension HomeViewController {
-    
-    
+extension HomeViewController: UICollectionViewDelegate {
+
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        guard let destinationVC = segue.destination as? GiftCardViewController else { return }
+        guard let navigationVC = segue.destination as? GiftCardNavigationController, let destinationVC = navigationVC.topViewController as? GiftCardViewController else { return }
         if let lastIndexpath = giftcardsCollecionView.indexPathsForSelectedItems?.last {
             let item = viewModel.cards.value[lastIndexpath.row]
             destinationVC.card = item
         }
+        
     }
     
 }
@@ -153,6 +118,8 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
 }
+
+
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     

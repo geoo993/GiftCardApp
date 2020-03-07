@@ -45,6 +45,8 @@
 		AB981D5B23FFE98B00F80027 /* GiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5A23FFE98B00F80027 /* GiftCardView.swift */; };
 		AB981D5E23FFF2A600F80027 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; };
 		AB981D5F23FFF2A600F80027 /* Hero.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C77B75AF241406A100D3353A /* GiftCardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B75AE241406A100D3353A /* GiftCardNavigationController.swift */; };
+		C77B75B12414076F00D3353A /* ViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B75B02414076F00D3353A /* ViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,9 @@
 		AB981D5A23FFE98B00F80027 /* GiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardView.swift; sourceTree = "<group>"; };
 		AB981D5C23FFF29D00F80027 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Frameworks/Hero.framework; sourceTree = SOURCE_ROOT; };
 		AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GiftCardAppRelease.entitlements; path = ../../../.Trash/GiftCardAppRelease.entitlements; sourceTree = "<group>"; };
+		C77B75AE241406A100D3353A /* GiftCardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardNavigationController.swift; sourceTree = "<group>"; };
+		C77B75B02414076F00D3353A /* ViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ext.swift"; sourceTree = "<group>"; };
+		C77B75B2241429F200D3353A /* GiftCardApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiftCardApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,13 +167,14 @@
 		AB7374F123FE976F0087B5E1 /* GiftCardApp */ = {
 			isa = PBXGroup;
 			children = (
+				C77B75B2241429F200D3353A /* GiftCardApp.entitlements */,
 				AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */,
 				AB73751723FE990E0087B5E1 /* Delegate */,
 				AB981D3B23FEDD9900F80027 /* Stripe */,
 				AB73751623FE97940087B5E1 /* Models */,
 				AB73751523FE978A0087B5E1 /* ViewModels */,
 				AB73751423FE977E0087B5E1 /* Views */,
-				AB73752323FEA50D0087B5E1 /* Foundation */,
+				AB73752323FEA50D0087B5E1 /* Extensions */,
 				AB73750023FE97740087B5E1 /* Info.plist */,
 			);
 			path = GiftCardApp;
@@ -233,6 +239,7 @@
 		AB73751923FEA16B0087B5E1 /* GiftCard */ = {
 			isa = PBXGroup;
 			children = (
+				C77B75AE241406A100D3353A /* GiftCardNavigationController.swift */,
 				AB73751B23FEA2D00087B5E1 /* GiftCardViewController.swift */,
 				AB981D5823FFDDFC00F80027 /* DenominationButton.swift */,
 				AB981D5A23FFE98B00F80027 /* GiftCardView.swift */,
@@ -249,12 +256,13 @@
 			path = Confirmation;
 			sourceTree = "<group>";
 		};
-		AB73752323FEA50D0087B5E1 /* Foundation */ = {
+		AB73752323FEA50D0087B5E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AB73752423FEA62D0087B5E1 /* UIColor+Ext.swift */,
+				C77B75B02414076F00D3353A /* ViewController+Ext.swift */,
 			);
-			path = Foundation;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AB73752A23FECEAA0087B5E1 /* Frameworks */ = {
@@ -401,8 +409,10 @@
 				AB981D5123FF00F100F80027 /* EmojiCell.swift in Sources */,
 				AB981D4923FEF62B00F80027 /* SettingsViewController.swift in Sources */,
 				AB981D4A23FEF62B00F80027 /* CheckoutRowView.swift in Sources */,
+				C77B75AF241406A100D3353A /* GiftCardNavigationController.swift in Sources */,
 				AB7374F523FE976F0087B5E1 /* SceneDelegate.swift in Sources */,
 				AB981D4B23FEF62B00F80027 /* CheckoutViewController.swift in Sources */,
+				C77B75B12414076F00D3353A /* ViewController+Ext.swift in Sources */,
 				AB981D4723FEF62B00F80027 /* BrowseProductsViewController.swift in Sources */,
 				AB73752523FEA62D0087B5E1 /* UIColor+Ext.swift in Sources */,
 				AB981D5723FF017A00F80027 /* UIColor+Stripe.swift in Sources */,
@@ -573,7 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = GiftCardApp/GiftCardApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTRX47ZAU4;
@@ -597,7 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = GiftCardApp/GiftCardApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTRX47ZAU4;

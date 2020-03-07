@@ -22,6 +22,7 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         }
     }
 
+    typealias ChargeResult = (key: String?, error: AFError?)
     static let shared = APIClient()
     
     var paymentCurrency: String = "GBP"
@@ -34,14 +35,15 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
         }
     }
     
-    func charge(result: STPPaymentResult, amount: Int, shippingAddress: STPAddress?, shippingMethod: PKShippingMethod?, completion: @escaping STPErrorBlock) {
+    func charge(result: STPPaymentResult, amount: Int, shippingAddress: STPAddress?, shippingMethod: PKShippingMethod?, completion: @escaping ((ChargeResult) -> Void)) {
         let url = self.baseURL.appendingPathComponent("charge")
         var params: [String: Any] = [
-            "source": result.paymentMethod?.stripeId ?? "",
+            "source": "tok_visa",
             "amount": amount,
-            "currency": paymentCurrency,
+            "currency": "gbp",
             "customer_id": "cus_GmzZKoRobKM6D2"
         ]
+        print("source",  result.paymentMethod?.stripeId)
         params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
         AF.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<400)
@@ -49,11 +51,12 @@ class APIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 switch response.result {
                 case .success(let clientSecret):
                     print(clientSecret)
-                    completion(nil)
+                    completion((clientSecret, nil))
                 case .failure(let error):
-                    completion(error)
+                    completion((nil, error))
                 }
         }
+        
     }
     
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {

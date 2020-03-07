@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let navigationController = storyboard.instantiateViewController(withIdentifier: HomeNavigationController.UIConstant.storyboardID)
-        //let rootVC = BrowseProductsViewController()
-        //let navigationController = UINavigationController(rootViewController: rootVC)
+//        let rootVC = BrowseProductsViewController()
+//        let navigationController = UINavigationController(rootViewController: rootVC)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
