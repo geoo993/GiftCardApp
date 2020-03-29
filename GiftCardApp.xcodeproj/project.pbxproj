@@ -45,6 +45,10 @@
 		AB981D5B23FFE98B00F80027 /* GiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB981D5A23FFE98B00F80027 /* GiftCardView.swift */; };
 		AB981D5E23FFF2A600F80027 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; };
 		AB981D5F23FFF2A600F80027 /* Hero.framework in Embedded Frameworks */ = {isa = PBXBuildFile; fileRef = AB981D5C23FFF29D00F80027 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C70D22B724312C8C002D6A19 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D22B324312C8C002D6A19 /* PresentationController.swift */; };
+		C70D22B824312C8C002D6A19 /* PresentationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D22B424312C8C002D6A19 /* PresentationProtocol.swift */; };
+		C70D22B924312C8C002D6A19 /* PresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D22B524312C8C002D6A19 /* PresentationAnimator.swift */; };
+		C70D22BA24312C8C002D6A19 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D22B624312C8C002D6A19 /* PresentationManager.swift */; };
 		C77B75AF241406A100D3353A /* GiftCardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B75AE241406A100D3353A /* GiftCardNavigationController.swift */; };
 		C77B75B12414076F00D3353A /* ViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B75B02414076F00D3353A /* ViewController+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +120,10 @@
 		AB981D5A23FFE98B00F80027 /* GiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardView.swift; sourceTree = "<group>"; };
 		AB981D5C23FFF29D00F80027 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Frameworks/Hero.framework; sourceTree = SOURCE_ROOT; };
 		AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GiftCardAppRelease.entitlements; path = ../../../.Trash/GiftCardAppRelease.entitlements; sourceTree = "<group>"; };
+		C70D22B324312C8C002D6A19 /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		C70D22B424312C8C002D6A19 /* PresentationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationProtocol.swift; sourceTree = "<group>"; };
+		C70D22B524312C8C002D6A19 /* PresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimator.swift; sourceTree = "<group>"; };
+		C70D22B624312C8C002D6A19 /* PresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationManager.swift; sourceTree = "<group>"; };
 		C77B75AE241406A100D3353A /* GiftCardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardNavigationController.swift; sourceTree = "<group>"; };
 		C77B75B02414076F00D3353A /* ViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ext.swift"; sourceTree = "<group>"; };
 		C77B75B2241429F200D3353A /* GiftCardApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiftCardApp.entitlements; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 				AB981D6124001B4100F80027 /* GiftCardAppRelease.entitlements */,
 				AB73751723FE990E0087B5E1 /* Delegate */,
 				AB981D3B23FEDD9900F80027 /* Stripe */,
+				C70D22AA24312BA5002D6A19 /* Transitions */,
 				AB73751623FE97940087B5E1 /* Models */,
 				AB73751523FE978A0087B5E1 /* ViewModels */,
 				AB73751423FE977E0087B5E1 /* Views */,
@@ -296,6 +305,17 @@
 			path = Stripe;
 			sourceTree = "<group>";
 		};
+		C70D22AA24312BA5002D6A19 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				C70D22B524312C8C002D6A19 /* PresentationAnimator.swift */,
+				C70D22B324312C8C002D6A19 /* PresentationController.swift */,
+				C70D22B624312C8C002D6A19 /* PresentationManager.swift */,
+				C70D22B424312C8C002D6A19 /* PresentationProtocol.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,12 +421,16 @@
 				AB7374F723FE976F0087B5E1 /* HomeViewController.swift in Sources */,
 				AB7374F323FE976F0087B5E1 /* AppDelegate.swift in Sources */,
 				AB73752923FEADDD0087B5E1 /* GiftCardCollectionViewCell.swift in Sources */,
+				C70D22BA24312C8C002D6A19 /* PresentationManager.swift in Sources */,
 				AB981D4823FEF62B00F80027 /* APIClient.swift in Sources */,
 				AB981D5923FFDDFC00F80027 /* DenominationButton.swift in Sources */,
+				C70D22B924312C8C002D6A19 /* PresentationAnimator.swift in Sources */,
+				C70D22B824312C8C002D6A19 /* PresentationProtocol.swift in Sources */,
 				AB981D4623FEF62B00F80027 /* Buttons.swift in Sources */,
 				AB73751C23FEA2D00087B5E1 /* GiftCardViewController.swift in Sources */,
 				AB73752023FEA43A0087B5E1 /* GiftCard.swift in Sources */,
 				AB981D5123FF00F100F80027 /* EmojiCell.swift in Sources */,
+				C70D22B724312C8C002D6A19 /* PresentationController.swift in Sources */,
 				AB981D4923FEF62B00F80027 /* SettingsViewController.swift in Sources */,
 				AB981D4A23FEF62B00F80027 /* CheckoutRowView.swift in Sources */,
 				C77B75AF241406A100D3353A /* GiftCardNavigationController.swift in Sources */,
